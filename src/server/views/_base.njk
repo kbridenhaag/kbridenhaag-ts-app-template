@@ -1,0 +1,32 @@
+{% extends "govuk/template.njk" %}
+
+{% block headIcons %}
+  <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="{{ assetPath }}/images/favicon.ico" type="image/x-icon">
+{% endblock %}
+
+{% block pageTitle %}
+  {% if title %}
+    {{ title }} -
+  {% endif %}
+  Indonesia.nl
+{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="/public/app.css">
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header.njk" %}
+{% endblock %}
+
+{% block bodyStart %}{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.njk" %}
+{% endblock %}
+
+{% block bodyEnd %}
+  <script src="{{ assetPath }}/app.js"></script>
+  {# Run JavaScript at end of the
+  <body>, to avoid blocking the initial render. #}
+{% endblock %}

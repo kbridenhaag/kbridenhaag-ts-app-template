@@ -1,0 +1,52 @@
+{% extends "_page.njk" %}
+
+{% set title = "Sign in with Batik ID" %}
+
+{% block content %}
+    <form method="post">
+      {{ govukInput({
+        label: {
+          text: "Email address"
+        },
+        classes: "govuk-input--width-20",
+        id: "email",
+        name: "email",
+        value: values.email,
+        errorMessage: {
+          text: errors.email.msg
+        } if (errors.email)
+      }) }}
+
+      {{ govukInput({
+        id: "password",
+        attributes: {"data-module": "moj-password-reveal"},
+        classes: "govuk-input--width-20",
+        name: "password",
+        type: "password",
+        label: {
+          text: "Password"
+        },
+        errorMessage: {
+          text: errors.password.msg
+        } if (errors.password)
+      }) }}
+
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+    </form>
+
+    <p>
+      <a href="/">Sign in with Google</a>
+    </p>
+    <p>
+      <a href="/magic-link">Sign in with email link</a>
+    </p>
+
+    <h2 class="govuk-heading-m">Problems signing in</h2>
+
+    <p><a href="/forgot-password">I forgot my password</a></p>
+
+{% endblock %}

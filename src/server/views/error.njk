@@ -1,0 +1,24 @@
+{% extends "_page.njk" %}
+
+{% set title = title | default("An unknown error occured") %}
+
+{% block content %}
+  {% block errorContent %}
+    <p>Please report to the administrator with the status code(s) below and try again.</p>
+  {% endblock %}
+  {% block errorNextSteps %}
+  <p>
+    <a href="/">Return to home</a>
+  </p>
+  {% endblock %}
+
+  {% if error.status %}
+    <pre class="govuk-!-margin-top-8">Status code: {{ error.status }}</pre>
+  {% endif %}
+
+  {% if isDev == false %}
+    {% if error.stack %}
+      <pre>{{ error.stack }}</pre>
+    {% endif %}
+  {% endif %}
+{% endblock %}

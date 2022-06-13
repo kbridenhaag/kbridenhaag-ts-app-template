@@ -1,0 +1,27 @@
+<header class="app-header">
+  <div class="govuk-width-container">
+    <a href="/" class="app-header__title app-header__link">
+      <img class="app-header__crest" src="{{ assetPath }}/images/bti-crest.png" alt="">
+      <div>
+        <div class="app-header__title-text">
+          Kedutaan Besar Republik Indonesia
+          <br aria-hidden="true">
+          Den Haag, Belanda
+        </div>
+        {% if appName %}
+          {%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+          {% set appNameClasses %}
+            app-header__service-name {% if appNameColor %}govuk-tag--{{appNameColor}} {% endif %}
+          {% endset %}
+
+
+          {{ govukTag({
+            classes: appNameClasses,
+            text: appName
+          }) }}
+        {% endif %}
+      </div>
+    </a>
+  </div>
+</header>

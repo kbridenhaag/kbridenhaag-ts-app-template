@@ -1,0 +1,31 @@
+{% extends "_base.njk" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% set values = flash("values") %}
+{% set errors = flash("errors") %}
+
+{% block main %}
+  <div class="govuk-width-container {{ containerClasses }}">
+    {% block beforeContent %}{% endblock %}
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          {% block errors %}
+            {% if errors %}
+              {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+              {{ govukErrorSummary({
+                titleText: "There is a problem",
+                errorList: errors | errorList
+              }) }}
+            {% endif %}
+          {% endblock %}
+          {% block contentTitle %}
+            <h1 class="govuk-heading-l">{{ title }}</h1>
+          {% endblock %}
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}
