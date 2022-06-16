@@ -1,6 +1,6 @@
 import { config } from '../config'
 import { createApp } from './app'
-import { logger } from './services/loggingService'
+import { logger } from './logger'
 
 (async () => {
   const app = createApp()
