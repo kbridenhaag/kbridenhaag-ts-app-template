@@ -12,8 +12,8 @@ export const createApp = () => {
 
   app.use(setupMiddleware())
   app.use(setupRoutes())
-  app.use(setupErrorHandler)
-  app.use(setupNotFound)
+  app.use(setupNotFound())
+  app.use(setupErrorHandler())
 
   return app
 }

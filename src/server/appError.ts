@@ -5,7 +5,7 @@ export class AppError extends Error {
   public readonly message: string
   public readonly redirect?: string
 
-  constructor(status: number, message: string, redirect?: string) {
+  constructor (status: number, message: string, redirect?: string) {
     super(message)
     this.status = status
     this.message = message
@@ -13,7 +13,7 @@ export class AppError extends Error {
   }
 }
 
-export const setupErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
+export const setupErrorHandler = (): ErrorRequestHandler => (err, req, res, next) => {
   if (err instanceof AppError) {
     if (err.redirect) {
       return res.status(err.status).redirect(err.redirect)
