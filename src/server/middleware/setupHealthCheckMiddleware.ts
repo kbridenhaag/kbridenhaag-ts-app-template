@@ -1,10 +1,10 @@
 import { Router } from 'express'
-import { ROUTE_PATHS } from '../constants'
+import { PATH_NAMES } from '../constants'
 
 export const setupHealthCheckMiddleware = (): Router => {
   const router = Router()
 
-  router.get(ROUTE_PATHS.HEALTH_CHECK, (req, res) => {
+  router.get(PATH_NAMES.HEALTH_CHECK, (req, res) => {
     res.send({
       uptime: process.uptime()
     })

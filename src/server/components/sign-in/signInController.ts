@@ -1,5 +1,5 @@
 import { Handler } from 'express'
-import { ROUTE_PATHS } from '../../constants'
+import { PATH_NAMES } from '../../constants'
 
 const TEMPLATE = 'sign-in/index.njk'
 
@@ -8,7 +8,7 @@ const signInGet = (): Handler => (req, res) => {
 }
 
 const signInPost = (): Handler => async (req, res, next) => {
-  return res.redirect(ROUTE_PATHS.SIGN_IN)
+  return res.redirect(PATH_NAMES.SIGN_IN)
 }
 
 export const signInController = Object.freeze({

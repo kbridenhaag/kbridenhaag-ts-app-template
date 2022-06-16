@@ -1,4 +1,4 @@
-export const ROUTE_PATHS = Object.freeze({
+export const PATH_NAMES = Object.freeze({
   HEALTH_CHECK: '/health',
   PUBLIC: '/public',
   SIGN_IN: '/sign-in',

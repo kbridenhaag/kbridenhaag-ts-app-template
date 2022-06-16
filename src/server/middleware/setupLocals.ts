@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { config } from '../../config'
-import { ROUTE_PATHS } from '../constants'
+import { PATH_NAMES } from '../constants'
 
 export const setupLocals = () => {
   const router = Router()
@@ -10,7 +10,7 @@ export const setupLocals = () => {
       appName: config.appName,
       appNameColor: config.appNameColor,
       isDev: process.env.NODE_ENV === 'production',
-      assetPath: ROUTE_PATHS.PUBLIC
+      assetPath: PATH_NAMES.PUBLIC
     })
 
     next()
