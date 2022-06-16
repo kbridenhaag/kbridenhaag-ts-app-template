@@ -7,7 +7,6 @@ declare global {
         id: string
         email: string
       }
-      flash: (key: string, value?: string[] | string | Record<string, unknown>) => string[] | string | Record<string, unknown> | undefined
     }
   }
 }

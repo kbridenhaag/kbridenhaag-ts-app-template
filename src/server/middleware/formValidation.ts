@@ -4,7 +4,7 @@ import { ValidationChain, ValidationError, validationResult } from 'express-vali
 export class FormValidationError extends Error {
   public status = 400
 
-  constructor(public readonly errors: Record<string, ValidationError>, public readonly redirect: string) {
+  constructor (public readonly errors: Record<string, ValidationError>, public readonly redirect: string) {
     super('Form validation error')
   }
 }
@@ -19,9 +19,6 @@ export const validateWith = (validations: ValidationChain | ValidationChain[], r
 
       if (!validationErrors.isEmpty()) {
         const error = new FormValidationError(validationErrors.mapped(), redirect || req.originalUrl)
-
-        req.flash('errors', error.errors)
-        req.flash('values', req.body)
 
         return res.status(400).redirect(error.redirect)
       }

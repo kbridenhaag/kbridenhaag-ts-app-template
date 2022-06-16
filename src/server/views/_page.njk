@@ -2,9 +2,6 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{% set values = flash("values") %}
-{% set errors = flash("errors") %}
-
 {% block main %}
   <div class="govuk-width-container {{ containerClasses }}">
     {% block beforeContent %}{% endblock %}
